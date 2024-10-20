@@ -25,6 +25,10 @@ const ImcCalc = () => {
                     />
                 </div>
             </div>
+            <div className="action-inputs">
+                <button>Calcular</button>
+                <button>Limpar</button>
+            </div>
         </form>
     </div>
   )
