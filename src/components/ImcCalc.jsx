@@ -5,15 +5,31 @@ import Button from './Button';
 import './ImcCalc.css';
 
 const ImcCalc = () => {
-const [height, setHeight] = useState("");
-const [weight, setWeight] = useState("");
+    const [height, setHeight] = useState("");
+    const [weight, setWeight] = useState("");
 
-const clearForm = (e) => {
-    e.preventDefault();
-    setHeight("");
-    setWeight("");
+    const clearForm = (e) => {
+        e.preventDefault();
+        setHeight("");
+        setWeight("");
 
-}
+    }
+
+    const validDigits = (text) => {
+        return text.replace(/[^0-9,]/g, "")
+    }    
+
+    const handleWeightChange = (e) => {
+        const updatedValue = validDigits(e.target.value)
+        setWeight(updatedValue);
+
+    }
+
+    const handleHeightChange = (e) => {
+        const updatedValue = validDigits(e.target.value)
+        setHeight(updatedValue);
+
+    }
 
   return (
     <div id="calc-container">
@@ -27,7 +43,7 @@ const clearForm = (e) => {
                         name='height' 
                         id='height' 
                         placeholder='Exemplo 1,75'
-                        onChange={(e) => setHeight (e.target.value)}
+                        onChange={(e) => handleHeightChange(e)}
                         value={height}
                     />
                 </div>
@@ -38,7 +54,7 @@ const clearForm = (e) => {
                         name='weight' 
                         id='weight' 
                         placeholder='Exemplo 70,5'
-                        onChange={(e) => setWeight(e.target.value)}
+                        onChange={(e) => handleWeightChange(e)}
                         value={weight}
                     />
                 </div>
