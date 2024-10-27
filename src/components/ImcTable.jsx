@@ -1,5 +1,7 @@
 import Button from './Button';
 
+import './ImcTable.css';
+
 const ImcTable = ({data}) => {
   return (
     <div id='result-container'>
